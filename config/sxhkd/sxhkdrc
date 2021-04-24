@@ -1,0 +1,97 @@
+# run terminal emulator
+super + Return
+	urxvt
+
+# run file manager
+super + shift + f
+	nautilus
+
+# run pavucontrol
+super + shift + v
+  pavucontrol
+
+# run browser
+super + shift + b
+  firefox
+
+# screenshot
+super + {_,shift +}x
+	scr.sh {-s,_}
+
+# run rofi launcher desktop/shell
+super + {_,shift +}r
+	rofi -show {drun,run}
+
+XF86XK_TouchpadToggle
+  notify-send "123"
+
+# focus left/down/up/right
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+
+super + {h,j,k,l}
+  bspc node -f {west,south,north,east}
+
+# move left/down/up/right
+super + shift + {Left,Down,Up,Right}
+	bspc node -s {west,south,north,east}
+
+super + shift + {h,j,k,l}
+  bspc node -s {west,south,north,east}
+
+# focus next/prev
+alt + Tab
+  bspc node -f next.local.window
+
+# focus parent/brother/first/second
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus next/previous desktop in current monitor
+ctrl + alt + {Left,Right}
+	bspc desktop -f {prev,next}.local.leaf
+
+# set window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# toggle monocle
+super + m
+	bspc desktop -l next
+
+# rotate node
+super + n
+	bspc node -f @parent; \
+	bspc node -R 90; \
+	bspc node -f @first
+
+# close/kill window
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# focus/send to the given desktop
+super + {_,shift +}{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# preselect the direction
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel preselect for node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel preselect for desktop
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# reload bspwm
+super + alt + r
+	bspc wm -r
+
+# reload config
+super + Escape
+	pkill -USR1 -x sxhkd

@@ -1,0 +1,10 @@
+/home/lucius/.zshrc;zshrc
+/home/lucius/.vimrc;vimrc
+/home/lucius/.scripts;scripts
+/home/lucius/.Xresources;Xresources
+/home/lucius/.config/colorschemes/nord;config/colorschemes/nord
+/home/lucius/.config/bspwm;config/bspwm
+/home/lucius/.config/sxhkd;config/sxhkd
+/home/lucius/.config/dunst;config/dunst
+/home/lucius/.config/polybar;config/polybar
+/home/lucius/.config/picom.conf;config/picom.conf
